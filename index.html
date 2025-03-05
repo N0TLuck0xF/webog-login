@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> WebOG Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background: linear-gradient(45deg, #0a0a2a, #1a1a4a);
+            perspective: 1000px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+            font-family: 'Courier New', monospace;
+        }
+        .login-container {
+            transform-style: preserve-3d;
+            transform: rotateX(15deg) rotateY(-15deg);
+            transition: all 0.5s ease;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+        }
+        .login-container:hover {
+            transform: rotateX(0) rotateY(0) scale(1.05);
+        }
+        .glitch-text {
+            position: relative;
+            color: #00ffff;
+            text-shadow: 
+                2px 2px 0 #ff00ff, 
+                -2px -2px 0 #00ff00;
+            animation: glitch 0.3s infinite alternate;
+        }
+        @keyframes glitch {
+            0% { transform: translate(0); }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(-2px, -2px); }
+            60% { transform: translate(2px, 2px); }
+            80% { transform: translate(2px, -2px); }
+            100% { transform: translate(0); }
+        }
+        .cyber-input {
+            background: rgba(0,255,255,0.1);
+            border: 2px solid #00ffff;
+            color: #00ffff;
+            backdrop-filter: blur(10px);
+        }
+        .scan-line {
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(to right, transparent, #00ffff, transparent);
+            animation: scan 3s linear infinite;
+            opacity: 0.3;
+        }
+        @keyframes scan {
+            0% { top: 0; }
+            100% { top: 100%; }
+        }
+    </style>
+</head>
+<body class="bg-black">
+    <div class="login-container relative bg-black/70 p-8 rounded-xl border-2 border-cyan-500 w-96">
+        <div class="scan-line"></div>
+        <h1 class="text-center text-3xl mb-6 glitch-text"> WebOG LOGIN</h1>
+        <form class="space-y-4">
+            <div>
+                <input 
+                    type="text" 
+                    placeholder="USERNAME" 
+                    class="w-full p-3 cyber-input rounded-lg"
+                />
+            </div>
+            <div>
+                <input 
+                    type="password" 
+                    placeholder="PASSWORD" 
+                    class="w-full p-3 cyber-input rounded-lg"
+                />
+            </div>
+            <button 
+                class="w-full p-3 bg-cyan-500 text-black font-bold rounded-lg 
+                       hover:bg-cyan-400 transition-all duration-300 
+                       transform hover:scale-105"
+            >
+                ENTER SYSTEM
+            </button>
+        </form>
+        <div class="mt-4 text-center text-xs text-cyan-300">
+            SECURE CONNECTION • ENCRYPTED TUNNEL
+        </div>
+    </div>
+</body>
+</html>
